@@ -1,0 +1,25 @@
+🔎 Explicación del ejemplo
+DisplayName: nombre de la política.
+
+State: activada (enabled).
+
+Conditions:
+
+Users: todos los usuarios.
+
+Applications: todas las aplicaciones.
+
+Devices: exige que el dispositivo esté marcado como compatible.
+
+GrantControls:
+
+Operator = "AND" → significa que deben cumplirse ambas condiciones.
+
+BuiltInControls = @("mfa","compliantDevice") → el usuario debe autenticarse con MFA y usar un dispositivo compatible.
+
+🚀 Buenas prácticas
+Empieza en modo “reportOnly” para validar impacto.
+
+Aplica primero a un grupo piloto.
+
+Documenta la política con su objetivo: “Asegurar que solo dispositivos compatibles accedan y que los usuarios validen con MFA”.
