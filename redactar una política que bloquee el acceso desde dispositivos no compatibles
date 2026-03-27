@@ -1,0 +1,19 @@
+Connect-MgGraph -Scopes "Policy.ReadWrite.ConditionalAccess"
+New-MgIdentityConditionalAccessPolicy `
+  -DisplayName "Bloquear dispositivos no compatibles" `
+  -State "enabled" `
+  -Conditions @{
+      Users = @{
+        IncludeUsers = @("All")   # Aplica a todos los usuarios
+      }
+      Applications = @{
+        IncludeApplications = @("All") # Aplica a todas las apps
+      }
+      Devices = @{
+        DeviceStates = @("Compliant") # Solo dispositivos compatibles
+      }
+  } `
+  -GrantControls @{
+      Operator = "OR"
+      BuiltInControls = @("block") # Bloquea acceso si no cumple
+  }
