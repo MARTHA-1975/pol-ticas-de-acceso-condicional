@@ -1,0 +1,21 @@
+🔎 Cómo leer el diagrama
+Inicio de sesión del usuario → se evalúa si el intento de acceso existe.
+
+¿Dispositivo compatible?
+
+Si No, el acceso se bloquea.
+
+Si Sí, pasa al siguiente control.
+
+¿MFA realizado?
+
+Si No, se solicita MFA.
+
+Si Sí, el acceso es permitido.
+
+🚀 Ventaja de este enfoque
+Garantiza que solo dispositivos seguros puedan acceder.
+
+Obliga a que el usuario valide su identidad con MFA.
+
+Reduce riesgos de accesos no autorizados desde equipos inseguros o credenciales comprometidas.
