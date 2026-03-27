@@ -1,0 +1,19 @@
+Connect-MgGraph -Scopes "Policy.ReadWrite.ConditionalAccess"
+New-MgIdentityConditionalAccessPolicy `
+  -DisplayName "MFA y dispositivo compatible" `
+  -State "enabled" `
+  -Conditions @{
+      Users = @{
+        IncludeUsers = @("All")   # Aplica a todos los usuarios
+      }
+      Applications = @{
+        IncludeApplications = @("All") # Aplica a todas las apps
+      }
+      Devices = @{
+        DeviceStates = @("Compliant") # Solo dispositivos compatibles
+      }
+  } `
+  -GrantControls @{
+      Operator = "AND"
+      BuiltInControls = @("mfa","compliantDevice") # Requiere MFA y dispositivo compatible
+  }
